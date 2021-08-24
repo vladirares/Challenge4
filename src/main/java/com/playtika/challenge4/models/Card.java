@@ -1,5 +1,7 @@
 package com.playtika.challenge4.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -13,7 +15,7 @@ public class Card {
     private long id;
 
     @Column(name = "card_serial")
-    private String name;
+    private String serial;
 
     @Column(name = "card_no_numbers")
     private int noNumbers;
@@ -21,21 +23,10 @@ public class Card {
     @Column(name = "card_generated_date")
     private Date generatedDate;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "player_id",insertable = false,updatable = false)
     private Player player;
-
-//    @OneToMany
-//    @JoinColumn(name = "card_id")
-//    private List<BingoNumber> bingoNumbers;
-
-//    public List<BingoNumber> getBingoNumbers() {
-//        return bingoNumbers;
-//    }
-//
-//    public void setBingoNumbers(List<BingoNumber> bingoNumbers) {
-//        this.bingoNumbers = bingoNumbers;
-//    }
 
 
     @ManyToMany
@@ -60,12 +51,12 @@ public class Card {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getSerial() {
+        return serial;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setSerial(String name) {
+        this.serial = name;
     }
 
     public int getNoNumbers() {

@@ -6,6 +6,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Component()
@@ -26,6 +28,11 @@ public class BingoSettings {
     private String developers;
 
     private Date lastRun;
+
+    @PostConstruct
+    public void setLastRun(){
+        lastRun = new Date();
+    }
 
     public String getVersion() {
         return version;

@@ -29,7 +29,7 @@ public class Player {
     @Column(name = "player_accepts_newsletter")
     private boolean acceptsNewsletter;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "player_id")
     private List<Card> cards;
 

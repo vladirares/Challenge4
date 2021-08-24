@@ -28,6 +28,14 @@ public class BingoNumber {
 //    @JoinColumn(name = "card_id",insertable = false,updatable = false)
 //    private Card card;
 
+    public BingoNumber(){
+
+    }
+
+    public BingoNumber(String noColumn, int noValue) {
+        this.noColumn = noColumn;
+        this.noValue = noValue;
+    }
 
     public List<Card> getCards() {
         return cards;

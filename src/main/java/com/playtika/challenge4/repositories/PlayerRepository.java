@@ -15,4 +15,12 @@ public interface PlayerRepository extends JpaRepository<Player,Long> {
 
     @Query(value = "SELECT * FROM players p WHERE p.player_no_played_games >= :value  ",nativeQuery = true)
     List<Player> getPlayerWithGamesAbove(int value);
+
+    @Query(value = "SELECT * FROM players  ORDER BY player_name ",nativeQuery = true)
+    List<Player> getSortedPlayers();
+
+    @Query(value = "SELECT * FROM players  ORDER BY player_no_played_games DESC ",nativeQuery = true)
+    List<Player> getPlayersByNumberOfGames();
+
+
 }
